@@ -52,30 +52,30 @@ class SearchHome extends State<SearchScreen> {
                     textAlign: TextAlign.center,
                     controller: controller,
                   )),
-              new ListView.builder(
-                  itemCount: data == null ? 0 : data.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return new Container(
-                      child: new Center(
-                        child: new Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: <Widget>[
-                            new Card(
-                              child: new Container(
-                                child: new Text(
-                                  data[index]['name'],
-                                  style: new TextStyle(
-                                      fontSize: 20.0,
-                                      color: Colors.lightBlueAccent),
-                                ),
-                                padding: EdgeInsets.all(15.0),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    );
-                  }),
+//              new ListView.builder(
+//                  itemCount: data == null ? 0 : data.length,
+//                  itemBuilder: (BuildContext context, int index) {
+//                    return new Container(
+//                      child: new Center(
+//                        child: new Column(
+//                          crossAxisAlignment: CrossAxisAlignment.stretch,
+//                          children: <Widget>[
+//                            new Card(
+//                              child: new Container(
+//                                child: new Text(
+//                                  data[index]['name'],
+//                                  style: new TextStyle(
+//                                      fontSize: 20.0,
+//                                      color: Colors.lightBlueAccent),
+//                                ),
+//                                padding: EdgeInsets.all(15.0),
+//                              ),
+//                            )
+//                          ],
+//                        ),
+//                      ),
+//                    );
+//                  }),
             ],
           ),
         ),
