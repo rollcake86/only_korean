@@ -130,22 +130,21 @@ AlertDialog getDioalog() {
 
 // ignore: missing_return
 String encrypted(String result) {
-  var stringArray = result.trim().split(" ");
+
+
+  String stringChange = makeBlack(result.trim().replaceAll(" ", ""));
+  var stringArray = stringChange.split(" ");
   StringBuffer sb = new StringBuffer();
 
   for (String str in stringArray) {
-    var first = str.substring(0, 1);
-    var end = str.substring(str.length - 1, str.length);
-    if (str.length > 2) {
-      var result = end + str.substring(1, str.length - 1) + first;
-      sb.write(result + " ");
-    } else {
-      var result = end + first;
+
+    if (str.length == 4) {
+      var first = str.substring(1, 2);
+      var end = str.substring(2, 3);
+      var result = str.substring(0,1) +end + first + str.substring(3,4);
       sb.write(result + " ");
     }
   }
-
-  print(sb.toString());
 
   return sb.toString();
 }
