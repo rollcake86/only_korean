@@ -9,7 +9,6 @@ class AccountScreen extends StatelessWidget {
     TextEditingController resultController = new TextEditingController();
 
 
-
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("단어 추가하기"),
@@ -64,7 +63,7 @@ class AccountScreen extends StatelessWidget {
         new FlatButton(
           child: new Text("네"),
           onPressed: () {
-            
+
           },
         ),
         new FlatButton(

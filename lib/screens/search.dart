@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -40,47 +41,48 @@ class SearchHome extends State<SearchScreen> {
       appBar: new AppBar(
         title: new Text("단어 검색하기"),
       ),
-      body: new Container(
-        child: new Center(
-          child: new Column(
-            children: <Widget>[
-              new Padding(
-                  padding: EdgeInsets.only(bottom: 10.0),
-                  child: new TextField(
-                    decoration: InputDecoration(hintText: '원래 단어를 입력하세요'),
-                    style: new TextStyle(fontSize: 17.0),
-                    textAlign: TextAlign.center,
-                    controller: controller,
-                  )),
-//              new ListView.builder(
-//                  itemCount: data == null ? 0 : data.length,
-//                  itemBuilder: (BuildContext context, int index) {
-//                    return new Container(
-//                      child: new Center(
-//                        child: new Column(
-//                          crossAxisAlignment: CrossAxisAlignment.stretch,
-//                          children: <Widget>[
-//                            new Card(
-//                              child: new Container(
-//                                child: new Text(
-//                                  data[index]['name'],
-//                                  style: new TextStyle(
-//                                      fontSize: 20.0,
-//                                      color: Colors.lightBlueAccent),
-//                                ),
-//                                padding: EdgeInsets.all(15.0),
-//                              ),
-//                            )
-//                          ],
-//                        ),
-//                      ),
-//                    );
-//                  }),
-            ],
+      body: Container(
+          child: Column(children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: TextField(
+            onChanged: (value) {},
+            controller: controller,
+            decoration: InputDecoration(
+                labelText: "Search",
+                hintText: "Search",
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(25.0)))),
           ),
         ),
-        padding: EdgeInsets.all(10.0),
-      ),
+        Expanded(
+          child: new ListView.builder(
+              itemCount: data == null ? 0 : data.length,
+              itemBuilder: (BuildContext context, int index) {
+                return new Container(
+                  child: new Center(
+                    child: new Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        new Card(
+                          child: new Container(
+                            child: new Text(
+                              data[index]['name'],
+                              style: new TextStyle(
+                                  fontSize: 20.0,
+                                  color: Colors.lightBlueAccent),
+                            ),
+                            padding: EdgeInsets.all(15.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                );
+              }),
+        )
+      ])),
       floatingActionButton: new FloatingActionButton(
           child: new Icon(Icons.search),
           onPressed: () {
