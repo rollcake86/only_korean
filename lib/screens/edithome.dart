@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:only_korean_review/screens/search.dart';
 import 'account.dart';
+import 'package:flutter/services.dart';
 import 'settings.dart';
 
 class edit extends StatefulWidget {
@@ -15,6 +16,14 @@ class edit extends StatefulWidget {
 class editHome extends State<edit> {
   String results = "";
   final TextEditingController textController = new TextEditingController();
+
+  @override
+  void initState(){
+    super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
+  }
 
   Drawer getNavDrawer(BuildContext context) {
     var headerChild = new DrawerHeader(
@@ -55,7 +64,7 @@ class editHome extends State<edit> {
       headerChild,
       getNavItem(Icons.add, "단어 추가하기", AccountScreen.routeName),
       getNavItem(Icons.search, "단어 검색하기", SearchScreen.routeName),
-      getNavItem(Icons.settings, "셋팅", SettingsScreen.routeName),
+//      getNavItem(Icons.settings, "셋팅", SettingsScreen.routeName),
       aboutChild
     ];
     ListView listView = new ListView(children: myNavChildren);

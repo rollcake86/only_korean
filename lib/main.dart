@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         // define the routes
         AccountScreen.routeName: (BuildContext context) => new AccountScreen(),
         SearchScreen.routeName: (BuildContext context) => new SearchScreen(),
-        SettingsScreen.routeName: (BuildContext context) => new SettingsScreen(),
+//        SettingsScreen.routeName: (BuildContext context) => new SettingsScreen(),
       },
     );
   }
