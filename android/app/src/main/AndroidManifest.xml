@@ -8,8 +8,8 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="only_korean_review"
-        android:icon="@mipmap/ic_launcher">
+        android:label="한국인만"
+        android:icon="@mipmap/ic_conversation">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

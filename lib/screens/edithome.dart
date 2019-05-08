@@ -18,7 +18,7 @@ class editHome extends State<edit> {
   final TextEditingController textController = new TextEditingController();
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
@@ -27,21 +27,18 @@ class editHome extends State<edit> {
 
   Drawer getNavDrawer(BuildContext context) {
     var headerChild = new DrawerHeader(
-        child: new Center(
-            child: new Column(
-      children: <Widget>[
-        new Image(
-          image: AssetImage('image/translator.png'),
-          height: 80,
-        ),
-      ],
-    )));
+      child: new Center(
+          child: new Image(
+        image: AssetImage('image/conversation.png'),
+        height: 80,
+      )),
+    );
     var aboutChild = new AboutListTile(
       child: new Text('About'),
       applicationName: "한국인만",
       applicationVersion: "v1.0.0",
       applicationIcon: new Image(
-        image: AssetImage('image/translator.png'),
+        image: AssetImage('image/conversation.png'),
         height: 50,
       ),
       icon: new Icon(Icons.info),
@@ -100,16 +97,19 @@ class editHome extends State<edit> {
                   textAlign: TextAlign.center,
                   controller: textController),
             ),
-            new GestureDetector(
-              child: new Text(results,
-                  textAlign: TextAlign.center,
-                  style: new TextStyle(fontSize: 20.0)),
-              onLongPress: () {
-                Clipboard.setData(new ClipboardData(text: results));
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) => getDioalog());
-              },
+            new Padding(
+              padding: const EdgeInsets.only(bottom: 10.0, top: 30.0),
+              child: new GestureDetector(
+                child: new Text(results,
+                    textAlign: TextAlign.center,
+                    style: new TextStyle(fontSize: 20.0)),
+                onLongPress: () {
+                  Clipboard.setData(new ClipboardData(text: results));
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) => getDioalog());
+                },
+              ),
             ),
           ],
         ),
@@ -121,7 +121,7 @@ class editHome extends State<edit> {
             results = encrypted(textController.text);
           });
         },
-        child: Icon(Icons.translate),
+        child: Icon(Icons.chat),
       ),
     );
   }
@@ -139,18 +139,15 @@ AlertDialog getDioalog() {
 
 // ignore: missing_return
 String encrypted(String result) {
-
-
   String stringChange = makeBlack(result.trim().replaceAll(" ", ""));
   var stringArray = stringChange.split(" ");
   StringBuffer sb = new StringBuffer();
 
   for (String str in stringArray) {
-
     if (str.length == 4) {
       var first = str.substring(1, 2);
       var end = str.substring(2, 3);
-      var result = str.substring(0,1) +end + first + str.substring(3,4);
+      var result = str.substring(0, 1) + end + first + str.substring(3, 4);
       sb.write(result + " ");
     }
   }

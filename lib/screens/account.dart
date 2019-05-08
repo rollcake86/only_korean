@@ -18,15 +18,15 @@ class AccountScreen extends StatelessWidget {
           child: new Column(
             children: <Widget>[
               new Padding(
-                  padding: EdgeInsets.only(bottom: 10.0),
+                  padding: EdgeInsets.only(bottom: 50.0),
                   child: new TextField(
-                    decoration: InputDecoration(hintText: '원래 단어를 입력하세요'),
+                    decoration: InputDecoration(labelText: '원래 단어', border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),  hintText: '원래 단어를 입력하세요'),
                     style: new TextStyle(fontSize: 17.0),
                     textAlign: TextAlign.center,
                     controller: controller,
                   )),
               new TextField(
-                decoration: InputDecoration(hintText: '변경할 단어를 입력하세요'),
+                decoration: InputDecoration(labelText: '변경될 단어', border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))), hintText: '변경할 단어를 입력하세요'),
                 style: new TextStyle(fontSize: 17.0),
                 textAlign: TextAlign.center,
                 controller: resultController,
@@ -34,7 +34,8 @@ class AccountScreen extends StatelessWidget {
             ],
           ),
         ),
-        padding: EdgeInsets.all(10.0),
+
+        padding: EdgeInsets.only(left: 30.0 , right: 30.0 , top: 100.0),
       ),
       floatingActionButton: new FloatingActionButton(
           child: new Icon(Icons.add),
